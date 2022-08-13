@@ -1,0 +1,30 @@
+
+body{
+    background-color: white;
+    font-family: Arial;
+    
+}
+
+#table{
+    background-color: white;
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 700px;
+}
+#table thead{
+    background-color: wheat;
+}
+#table th, td{
+    padding:5;
+
+}
+#table td{
+    text-align: center;
+}
+#table tr:nth-child(even){
+    background-color: #ddd;
+}
+#table tr:hover td{
+    background-color: #369681;
+    color:white;
+}

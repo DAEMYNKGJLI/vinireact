@@ -1,12 +1,12 @@
 import React from "react";
 import {BrowserRouter , Route, Switch} from "react-router-dom";
 
-import Login from "../page/components/login";
-import Listadousu from '../page/components/listadousu';
-import Borrarusu from '../page/components/borrarusu';
-import Editarusu from '../page/components/editarusu';
-import Registrarusu from '../page/components/registrarusu';
-import Detalleusu from '../page/components/detalleusu';
+import Login from "../page/components/auth/login";
+import Listadousu from '../page/components/usuarios/listadousu';
+import Borrarusu from '../page/components/usuarios/borrarusu';
+import Editarusu from '../page/components/usuarios/editarusu';
+import Registrarusu from '../page/components/usuarios/registrarusu';
+import Detalleusu from '../page/components/usuarios/detalleusu';
 import Inicio from '../page/components/inicio';
 import Error from '../page/error';
 

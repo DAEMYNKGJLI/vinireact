@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 export default class Listado extends React.Component {
   state = {
-    productos: [],
+    usuarios: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact7/public/api/getprod")
+    fetch("http://localhost/mcityreact7/public/api/getusu")
       .then((response) => response.json())
-      .then((productosJson) => this.setState({ productos: productosJson }));
+      .then((usuariosJson) => this.setState({ usuarios: usuariosJson }));
   }
 
   render() {
-    const { productos } = this.state;
+    const { usuarios } = this.state;
     return (
       <div className="container">
         <header>
@@ -53,12 +53,6 @@ export default class Listado extends React.Component {
                         Usuarios
                       </button>
                     </Link>
-                    <Link to="/logout">
-                      <button type="button" className="btn nav-item nav-link">
-                        Cerrar sesión
-                      </button>
-                    </Link>
-
                     <div class="navbar-nav ml-auto">
                       <div class="nav-item dropdown"></div>
                     </div>
@@ -71,38 +65,83 @@ export default class Listado extends React.Component {
             </div>
           </div>
         </header>
-        <center>
-          <br />
-          <h2>INICIO</h2>
-          <br />
-          <table className="table table-hover table-primary">
-            <thead>
-              <th scope="col">#</th>
-              <th scope="col">id</th>
-              <th scope="col">Producto</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">precio</th>
-              <th scope="col">Foto</th>
-            </thead>
-            <tbody>
-              {productos.map((producto, i) => (
-                <tr key={i}>
-                  <th scope="row">{i + 1}</th>
-                  <td>{producto.id}</td>
-                  <td>{producto.producto}</td>
-                  <td>{producto.tipo}</td>
-                  <td>{producto.precio}</td>
-                  <td>{producto.foto}</td>
-                  <td>
-                    <Link to={{ pathname: "/comprar" }}>
-                      <button type="button" className="btn btn-primary btn-sm">comprar</button>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </center>
+        <br />
+        <h2>usuarios({usuarios.length})</h2>
+        <br />
+        <p style={{ textAlign: "right" }}>
+          {"  "}
+          <Link to="/registrarusu">
+            <button type="button" className="btn btn-success btn-sm">
+              Registrar
+            </button>
+          </Link>
+          <Link to="/">
+            <button type="button" className="btn btn-warning btn-sm">
+              Regresar
+            </button>
+          </Link>
+        </p>
+        <table className="table table-hover table-primary">
+          <thead>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Detalles</th>
+            <th scope="col">Tipo de usuario</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Correo</th>
+          </thead>
+          <tbody>
+            {usuarios.map((usuario, i) => (
+              <tr key={i}>
+                <th scope="row">{i + 1}</th>
+                <td>{usuario.id}</td>
+                <td>{usuario.nombre}</td>
+                <td>{usuario.empresa}</td>
+                <td>{usuario.detalles}</td>
+                <td>{usuario.tipou}</td>
+                <td>{usuario.fotou}</td>
+                <td>{usuario.correo}</td>
+                <td>
+                  <Link
+                    to={{ pathname: "/detalleusu", state: { id: usuario.id } }}
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-info btn-sm"
+                    >
+                      Detalle
+                    </button>
+                  </Link>
+                  {"  "}
+                  <Link
+                    to={{ pathname: "/editarusu", state: { id: usuario.id } }}
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-warning btn-sm"
+                    >
+                      Editar
+                    </button>
+                  </Link>
+                  {"  "}
+                  <Link
+                    to={{ pathname: "/borrarusu", state: { id: usuario.id } }}
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-danger btn-sm"
+                    >
+                      Borrar
+                    </button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
         <footer>
           <div class="footer-bottom">
             <div class="container">
