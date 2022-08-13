@@ -6,7 +6,7 @@ export default class Listado extends React.Component {
     productos: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact7/public/api/getprod")
+    fetch("http://localhost/mcityreact/public/api/getprod")
       .then((response) => response.json())
       .then((productosJson) => this.setState({ productos: productosJson }));
   }
@@ -46,11 +46,6 @@ export default class Listado extends React.Component {
                     <Link to="/listadocomp">
                       <button type="button" className="btn nav-item nav-link">
                         Compras
-                      </button>
-                    </Link>
-                    <Link to="/listadousu">
-                      <button type="button" className="btn nav-item nav-link">
-                        Usuarios
                       </button>
                     </Link>
                     <Link to="/logout">

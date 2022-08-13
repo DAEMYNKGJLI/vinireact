@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 export default class Listado extends React.Component {
   state = {
-    usuarios: [],
+    compras: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact/public/api/getusu")
+    fetch("http://localhost/mcityreact/public/api/getcomp")
       .then((response) => response.json())
-      .then((usuariosJson) => this.setState({ usuarios: usuariosJson }));
+      .then((comprasJson) => this.setState({ compras: comprasJson }));
   }
 
   render() {
-    const { usuarios } = this.state;
+    const { compras } = this.state;
     return (
       <div className="container">
         <header>
@@ -48,11 +48,7 @@ export default class Listado extends React.Component {
                         Compras
                       </button>
                     </Link>
-                    <Link to="/listadousu">
-                      <button type="button" className="btn nav-item nav-link">
-                        Usuarios
-                      </button>
-                    </Link>
+                   
                     <div class="navbar-nav ml-auto">
                       <div class="nav-item dropdown"></div>
                     </div>
@@ -66,15 +62,10 @@ export default class Listado extends React.Component {
           </div>
         </header>
         <br />
-        <h2>usuarios({usuarios.length})</h2>
+        <h2>Compras({compras.length})</h2>
         <br />
         <p style={{ textAlign: "right" }}>
           {"  "}
-          <Link to="/registrarusu">
-            <button type="button" className="btn btn-success btn-sm">
-              Registrar
-            </button>
-          </Link>
           <Link to="/">
             <button type="button" className="btn btn-warning btn-sm">
               Regresar
@@ -85,55 +76,33 @@ export default class Listado extends React.Component {
           <thead>
             <th scope="col">#</th>
             <th scope="col">id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Empresa</th>
-            <th scope="col">Detalles</th>
-            <th scope="col">Tipo de usuario</th>
-            <th scope="col">Foto</th>
-            <th scope="col">Correo</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Foto Del Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">sub_total</th>
+            <th scope="col">Total</th>
           </thead>
           <tbody>
-            {usuarios.map((usuario, i) => (
+            {compras.map((compra, i) => (
               <tr key={i}>
                 <th scope="row">{i + 1}</th>
-                <td>{usuario.id}</td>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.empresa}</td>
-                <td>{usuario.detalles}</td>
-                <td>{usuario.tipou}</td>
-                <td>{usuario.fotou}</td>
-                <td>{usuario.correo}</td>
+                <td>{compra.id}</td>
+                <td>{compra.producto}</td>
+                <td>{compra.fotop}</td>
+                <td>{compra.precio}</td>
+                <td>{compra.cantidad}</td>
+                <td>{compra.sub_total}</td>
+                <td>{compra.total}</td>
                 <td>
                   <Link
-                    to={{ pathname: "/detalleusu", state: { id: usuario.id } }}
+                    to={{ pathname: "/detallecomp", state: { id: compra.id } }}
                   >
                     <button
                       type="button"
                       className="btn btn-info btn-sm"
                     >
                       Detalle
-                    </button>
-                  </Link>
-                  {"  "}
-                  <Link
-                    to={{ pathname: "/editarusu", state: { id: usuario.id } }}
-                  >
-                    <button
-                      type="button"
-                      className="btn btn-warning btn-sm"
-                    >
-                      Editar
-                    </button>
-                  </Link>
-                  {"  "}
-                  <Link
-                    to={{ pathname: "/borrarusu", state: { id: usuario.id } }}
-                  >
-                    <button
-                      type="button"
-                      className="btn btn-danger btn-sm"
-                    >
-                      Borrar
                     </button>
                   </Link>
                 </td>

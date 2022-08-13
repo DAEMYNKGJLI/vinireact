@@ -8,11 +8,11 @@ export default class Delete extends React.Component{
     }
     componentDidMount(){
         //---------Consulta-------------------//
-        fetch('http://localhost/mcityreact7/public/api/getdet/'+this.props.location.state.id)
+        fetch('http://localhost/mcityreact/public/api/getdetu/'+this.props.location.state.id)
         .then(response => response.json())
         .then(usuarioJson => this.setState({usuario: usuarioJson}));
 //------------ELIMINACIÓN-----------------------//
-        fetch('http://localhost/mcityreact7/public/api/delusu/'+this.props.location.state.id,{method:'delete'});
+        fetch('http://localhost/mcityreact/public/api/delusu/'+this.props.location.state.id,{method:'delete'});
     }
 
     render(){
@@ -59,7 +59,7 @@ export default class Delete extends React.Component{
             <br/>
             <br/>
             <Link to="/listadousu">
-            <button type='button' className='btn btn-outline-light'>
+            <button type='button' className='btn btn-secondary'>
                 regresar                             
             </button>
             </Link>

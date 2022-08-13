@@ -10,7 +10,7 @@ export default class Edicion extends React.Component{
         }
         componentDidMount(){
              //------------------Usuario---------------------//
-             fetch('http://localhost/mcityreact7/public/api/getdet/'+this.props.location.state.id)
+             fetch('http://localhost/mcityreact/public/api/getdetu/'+this.props.location.state.id)
              .then(response => response.json())
              .then(usuarioJson => this.setState({usuario: usuarioJson}))
         }
@@ -34,7 +34,7 @@ export default class Edicion extends React.Component{
                 ,correo:this.state.usuario.correo
                 ,password:this.state.usuario.password
             };
-            fetch('http://localhost/mcityreact7/public/api/putusu/'+this.state.usuario.id,
+            fetch('http://localhost/mcityreact/public/api/putusu/'+this.state.usuario.id,
             {method:'PUT',
             headers:{
                 'Accept':'application/json',
@@ -95,10 +95,10 @@ export default class Edicion extends React.Component{
                         <input type="password" className="form-control" name="password" onChange={this.changeField}/>
                     </div>
                         <br/>
-                        <button type="submit" className="btn bt-outline">Editar</button>
+                        <button type="submit" className="btn btn-primary">Editar</button>
                 </form>
                 <Link to='/listadousu'>
-                <button type='button' className='btn btn-outline-success btn-sm'>
+                <button type='button' className='btn btn-success btn-sm'>
                    Regresar
                 </button>
                 </Link>

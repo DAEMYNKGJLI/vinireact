@@ -7,6 +7,8 @@ import Borrarusu from '../page/components/usuarios/borrarusu';
 import Editarusu from '../page/components/usuarios/editarusu';
 import Registrarusu from '../page/components/usuarios/registrarusu';
 import Detalleusu from '../page/components/usuarios/detalleusu';
+import Detallecomp from '../page/components/compras/detallecomp';
+import Listadocomp from '../page/components/compras/listadocomp';
 import Inicio from '../page/components/inicio';
 import Error from '../page/error';
 
@@ -21,6 +23,8 @@ export default function Router(){
                 <Route exact path='/registrarusu' component={Registrarusu}></Route>
                 <Route exact path='/editarusu' component={Editarusu}></Route>
                 <Route exact path='/borrarusu' component={Borrarusu}></Route>
+                <Route exact path='/listadocomp' component={Listadocomp}></Route>
+                <Route exact path='/detallecomp' component={Detallecomp}></Route>
                 <Route exact path='/detalleusu' component={Detalleusu}></Route>
                 <Route component={Error}></Route>
             </Switch>
