@@ -3,37 +3,37 @@ import { Link } from "react-router-dom";
 
 export default class Detalle extends React.Component{
     state={
-        compra:[],
+        producto:[],
     }
 
     componentDidMount(){
-        fetch('http://localhost/mcityreact/public/api/getdetc/'+this.props.location.state.id)
+        fetch('http://localhost/mcityreact/public/api/getdetp/'+this.props.location.state.id)
         .then(response => response.json())
-        .then(compraJson => this.setState({compra: compraJson}))
+        .then(productoJson => this.setState({producto: productoJson}))
     }
     render(){
-        const {compra}=this.state
+        const {producto}=this.state
         return(
             <center>
                 <br/>
-                <h1>Detalle de Compra</h1>
+                <h1>Detalle de Producto</h1>
                 <br/>
                 <div className="card mb-3" style={{maxWidth:"540px",color:"#000000"}}>
                     <div className="row no-gutters">
                         <div className="col-md-4">
-                            <img src={compra.fotop} className="card-img"alt={compra.producto}></img>
+                            <img src={producto.fotop} className="card-img"alt={producto.producto}></img>
                         </div>
                         <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{compra.producto}</h5>
+                            <h5 className="card-title">{producto.producto}</h5>
                             <p className="card-text">
-                                <b>Producto:</b>{compra.producto}<br/>
-                                <b>Precio:</b>{compra.precio}<br/>
-                                <b>Total:</b>{compra.total}<br/>
+                                <b>Producto:</b>{producto.producto}<br/>
+                                <b>Cantidad:</b>{producto.cantidad}<br/>
+                                <b>Precio:</b>{producto.precio}<br/>
                             </p>
                             <p className="card-text"> 
                                 <small className="text-mute">
-                                    Ultima actualización Hace: <br/> {compra.created_at}
+                                    Ultima actualización Hace: <br/> {producto.created_at}
                                 </small>
                             </p>
                         </div>
@@ -43,7 +43,7 @@ export default class Detalle extends React.Component{
                 </div>
                 <br/>
                 <br/>
-                <Link to="/listadocomp">
+                <Link to="/listadoprod">
                 <button type='button' className='btn btn-secondary'>
                     regresar                             
                 </button>

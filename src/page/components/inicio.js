@@ -38,11 +38,7 @@ export default class Listado extends React.Component {
                         Inicio
                       </button>
                     </Link>
-                    <Link to="/listadoprod">
-                      <button type="button" className="btn nav-item nav-link">
-                        Productos
-                      </button>
-                    </Link>
+
                     <Link to="/listadocomp">
                       <button type="button" className="btn nav-item nav-link">
                         Compras

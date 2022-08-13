@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 export default class Listado extends React.Component {
   state = {
-    usuarios: [],
+    productos: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact/public/api/getusu")
+    fetch("http://localhost/mcityreact/public/api/getprod")
       .then((response) => response.json())
-      .then((usuariosJson) => this.setState({ usuarios: usuariosJson }));
+      .then((productosJson) => this.setState({ productos: productosJson }));
   }
 
   render() {
-    const { usuarios } = this.state;
+    const { productos } = this.state;
     return (
       <div className="container">
         <header>
@@ -61,11 +61,11 @@ export default class Listado extends React.Component {
           </div>
         </header>
         <br />
-        <h2>usuarios({usuarios.length})</h2>
+        <h2>Productos({productos.length})</h2>
         <br />
         <p style={{ textAlign: "right" }}>
           {"  "}
-          <Link to="/registrarusu">
+          <Link to="/registrarprod">
             <button type="button" className="btn btn-success btn-sm">
               Registrar
             </button>
@@ -80,27 +80,27 @@ export default class Listado extends React.Component {
           <thead>
             <th scope="col">#</th>
             <th scope="col">id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Empresa</th>
-            <th scope="col">Detalles</th>
-            <th scope="col">Tipo de usuario</th>
+            <th scope="col">producto</th>
+            <th scope="col">Código</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Precio</th>
             <th scope="col">Foto</th>
-            <th scope="col">Correo</th>
+            <th scope="col">Cantidad</th>
           </thead>
           <tbody>
-            {usuarios.map((usuario, i) => (
+            {productos.map((producto, i) => (
               <tr key={i}>
                 <th scope="row">{i + 1}</th>
-                <td>{usuario.id}</td>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.empresa}</td>
-                <td>{usuario.detalles}</td>
-                <td>{usuario.tipou}</td>
-                <td>{usuario.fotou}</td>
-                <td>{usuario.correo}</td>
+                <td>{producto.id}</td>
+                <td>{producto.producto}</td>
+                <td>{producto.codigo}</td>
+                <td>{producto.tipo}</td>
+                <td>{producto.precio}</td>
+                <td>{producto.fotop}</td>
+                <td>{producto.cantidad}</td>
                 <td>
                   <Link
-                    to={{ pathname: "/detalleusu", state: { id: usuario.id } }}
+                    to={{ pathname: "/detalleprod", state: { id: producto.id } }}
                   >
                     <button
                       type="button"
@@ -111,7 +111,7 @@ export default class Listado extends React.Component {
                   </Link>
                   {"  "}
                   <Link
-                    to={{ pathname: "/editarusu", state: { id: usuario.id } }}
+                    to={{ pathname: "/editarprod", state: { id: producto.id } }}
                   >
                     <button
                       type="button"
@@ -122,7 +122,7 @@ export default class Listado extends React.Component {
                   </Link>
                   {"  "}
                   <Link
-                    to={{ pathname: "/borrarusu", state: { id: usuario.id } }}
+                    to={{ pathname: "/borrarprod", state: { id: producto.id } }}
                   >
                     <button
                       type="button"
