@@ -24,6 +24,7 @@ export default function Router(){
             <Switch>
                 
                 <Route exact path='/' component={Inicio}></Route>
+                <Route exact path='/login' component={Login}></Route>
 
                 <Route exact path='/listadousu' component={Listadousu}></Route>
                 <Route exact path='/detalleusu' component={Detalleusu}></Route>  
@@ -43,7 +44,7 @@ export default function Router(){
                 <Route exact path='/listadocomp' component={Listadocomp}></Route>
                 <Route exact path='/detallecomp' component={Detallecomp}></Route>
 
-                <Route exact path='/login' component={Login}></Route>
+                
                 
                 <Route component={Error}></Route>
             </Switch>

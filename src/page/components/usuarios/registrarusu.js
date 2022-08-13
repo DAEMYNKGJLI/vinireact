@@ -30,7 +30,7 @@ export default class Registrar extends React.Component{
                 ,correo:this.state.correo
                 ,password:this.state.password
             };
-            fetch('http://localhost/mcityreact/public/api/postusu',
+            fetch('http://localhost/mcityreact/public/api/register',
             {method:'POST',
             headers:{
                 'Accept':'application/json',

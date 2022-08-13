@@ -15,51 +15,6 @@ export default class Listado extends React.Component {
     const { usuarios } = this.state;
     return (
       <div className="container">
-        <header>
-          <div class="nav">
-            <div class="container-fluid">
-              <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                <button
-                  type="button"
-                  class="navbar-toggler"
-                  data-toggle="collapse"
-                  data-target="#navbarCollapse"
-                >
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div
-                  class="collapse navbar-collapse justify-content-between"
-                  id="navbarCollapse"
-                >
-                  <div class="navbar-nav mr-auto">
-                    <Link to="/">
-                      <button type="button" className="btn nav-item nav-link">
-                        Inicio
-                      </button>
-                    </Link>
-                    <Link to="/listadoprod">
-                      <button type="button" className="btn nav-item nav-link">
-                        Productos
-                      </button>
-                    </Link>
-                    <Link to="/listadousu">
-                      <button type="button" className="btn nav-item nav-link">
-                        Usuarios
-                      </button>
-                    </Link>
-                    <div class="navbar-nav ml-auto">
-                      <div class="nav-item dropdown"></div>
-                    </div>
-                  </div>
-                  <div class="navbar-nav ml-auto">
-                    <div class="nav-item dropdown"></div>
-                  </div>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </header>
         <br />
         <h2>usuarios({usuarios.length})</h2>
         <br />

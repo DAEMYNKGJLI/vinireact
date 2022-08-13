@@ -92,7 +92,7 @@ export default class Edicion extends React.Component{
                     </div>
                     <div className="form-group">
                         <label>Contraseña:</label>
-                        <input type="password" className="form-control" name="password" onChange={this.changeField}/>
+                        <input type="password" className="form-control" name="password" defaultValue={usuario.password}onChange={this.changeField}/>
                     </div>
                         <br/>
                         <button type="submit" className="btn btn-primary">Editar</button>
