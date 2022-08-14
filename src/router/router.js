@@ -22,9 +22,9 @@ export default function Router(){
     return(
         <BrowserRouter>
             <Switch>
-                
-                <Route exact path='/' component={Inicio}></Route>
                 <Route exact path='/login' component={Login}></Route>
+                <Route exact path='/' component={Inicio}></Route>
+                
 
                 <Route exact path='/listadousu' component={Listadousu}></Route>
                 <Route exact path='/detalleusu' component={Detalleusu}></Route>  

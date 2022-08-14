@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
+
 export default class Registrar extends React.Component{
         
         state={
@@ -46,7 +47,9 @@ export default class Registrar extends React.Component{
         const {alta}=this.state
 
         return(
+            
             <div className="container" style={{maxWidth:"750px"}}>
+                <center> 
                 <br/>
                 <h1>Registro de usuario</h1>
                 <br/>
@@ -99,6 +102,7 @@ export default class Registrar extends React.Component{
                 </button>
                 </Link>
                 <br/>
+                </center>   
             </div>
         )
     }

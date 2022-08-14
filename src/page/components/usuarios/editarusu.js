@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
+
 export default class Edicion extends React.Component{
         
         state={
@@ -51,6 +52,7 @@ export default class Edicion extends React.Component{
 
         return(
             <div className="container" style={{maxWidth:"750px"}}>
+               
                 <br/>
                 <h1>Editar usuario</h1>
                 <br/>

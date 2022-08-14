@@ -14,6 +14,7 @@ export default class Detalle extends React.Component{
     render(){
         const {usuario}=this.state
         return(
+            
             <center>
                 <br/>
                 <h1>Detalle de Usuario</h1>

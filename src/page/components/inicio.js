@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from"./Navbar";
 
 export default class Listado extends React.Component {
   state = {
@@ -15,6 +16,7 @@ export default class Listado extends React.Component {
     const { productos } = this.state;
     return (
       <div className="container">
+        <Navbar/>
         <center>
           <br />
           <h2>INICIO</h2>

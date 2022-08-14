@@ -1,60 +1,54 @@
-<header>
-          <div class="nav">
-            <div class="container-fluid">
-              <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                <button
-                  type="button"
-                  class="navbar-toggler"
-                  data-toggle="collapse"
-                  data-target="#navbarCollapse"
-                >
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+import { Link, useHistory } from "react-router-dom"
+import {Navbar,Nav, NavDropdown} from "react-bootstrap";
+import "./nav.css";
 
-                <div
-                  class="collapse navbar-collapse justify-content-between"
-                  id="navbarCollapse"
-                >
-                  <div class="navbar-nav mr-auto">
-                    <Link to="/">
-                      <button type="button" className="btn nav-item nav-link">
-                        Inicio
-                      </button>
-                    </Link>
-                    <Link to="/listadoprod">
-                      <button type="button" className="btn nav-item nav-link">
-                        Productos
-                      </button>
-                    </Link>
-                    <Link to="/listadousu">
-                      <button type="button" className="btn nav-item nav-link">
-                        Usuarios
-                      </button>
-                    </Link>
-                    <Link to="/listadocomp">
-                      <button type="button" className="btn nav-item nav-link">
-                        Compras
-                      </button>
-                    </Link>
-                    <Link to="/login">
-                      <button type="button" className="btn nav-item nav-link">
-                        Iniciar sesión
-                      </button>
-                    </Link>
-                    <Link to="/logout">
-                      <button type="button" className="btn nav-item nav-link">
-                       cerrar sesión
-                      </button>
-                    </Link>
-                    <div class="navbar-nav ml-auto">
-                      <div class="nav-item dropdown"></div>
-                    </div>
-                  </div>
-                  <div class="navbar-nav ml-auto">
-                    <div class="nav-item dropdown"></div>
-                  </div>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </header>
+export default function Header() {
+    let user=JSON.parse(localStorage.getItem('user-info'))
+    const history = useHistory();
+    function logout()
+    {
+        localStorage.clear();
+        history.push('login')
+    }
+    return(
+        <div>
+            <Navbar bg="navbar navbar-dark bg-primary"> 
+            <ul>
+            <li><img src="https://test.mcitystore.com/public/img/mcitylogo.jpeg" width="70" height="50" alt="test"/><Navbar.Brand href="/">Inicio</Navbar.Brand></li>
+            </ul>
+                
+                <Nav className="mr-auto nav_bar_wrapper">
+                    {
+                        localStorage.getItem('user-info')?
+
+                        <>
+                        <ul>
+                        <li><Link class="link-dark" to="/listadousu">Usuarios</Link></li>
+                        <li><Link class="link-dark" to="/listadoprod">Productos</Link></li>
+                        <li><Link class="link-dark" to="/listadocomp">Compras</Link></li>
+
+                        </ul>
+                       
+                        
+                        
+                        </>
+                        :
+                        <>
+                        <ul>
+                        <li><Link class="link-dark" to="/login">Inicia sesión</Link></li>
+                        <li><Link class="link-dark" to="/register">Registrate</Link></li>
+                        </ul>
+                        
+                        </>
+                    }
+                </Nav>
+                <Nav>
+                    <NavDropdown title={user && user.nombre}>
+                    <NavDropdown.Item class="link-dark" onClick={logout}>Cerrar sesión</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            </Navbar>
+        </div>
+    )
+
+    }

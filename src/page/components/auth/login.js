@@ -1,80 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import Navbar from "../Navbar";
 
-export default function Login() {
+export default function Loginusu() {
   const[correo,setCorreo]=useState("");
   const[password,setPassword]=useState("");
   const history = useHistory();
   useEffect(() => {
-    if (localStorage.getItem("user-info")) {
+    if (localStorage.getItem('user-info')) {
       history.push("/listadousu");
     }
-  }, []);
-  async function login() {
+  },[])
+  async function Login() {
     console.warn(correo,password)
     let item={correo,password}
     let result= await fetch("http://localhost/mcityreact/public/api/login",{
         method:"POST",
-        Headers:{
+        headers:{
             "Content-Type":"application/json",
             "Accept":"application/json"
         },
         body:JSON.stringify(item)
     });
     result=await result.json();
-    localStorage.setItem("user-info",JSON.stringify(result))
-    history.push("listadousu")
+    localStorage.setItem('user-info',JSON.stringify(result))
+    history.push("/listadousu")
 
   }
   return (
     <div>
-      <header>
-        <div class="nav">
-          <div class="container-fluid">
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-              <button
-                type="button"
-                class="navbar-toggler"
-                data-toggle="collapse"
-                data-target="#navbarCollapse"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div
-                class="collapse navbar-collapse justify-content-between"
-                id="navbarCollapse"
-              >
-                <div class="navbar-nav mr-auto">
-                  <Link to="/">
-                    <button type="button" className="btn nav-item nav-link">
-                      Inicio
-                    </button>
-                  </Link>
-                  <Link to="/login">
-                    <button type="button" className="btn nav-item nav-link">
-                      Iniciar sesión
-                    </button>
-                  </Link>
-                  <div class="navbar-nav ml-auto">
-                    <div class="nav-item dropdown"></div>
-                  </div>
-                </div>
-                <div class="navbar-nav ml-auto">
-                  <div class="nav-item dropdown"></div>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </header>
-
+      
+      <Navbar/>
       <h1>Pagina de inicio de sesión</h1>
       <div className="col-sm-6 offset-sm-3">
         <input
-          type="text"
-          placeholder="Correo"
+          type="email"
+          placeholder="correo"
           name="correo"
           className="form-control"
           onChange={(e)=>setCorreo(e.target.value)}
@@ -88,7 +49,7 @@ export default function Login() {
           onChange={(e)=>setPassword(e.target.value)}
         />
         <br />
-        <button onClick={login} className="btn btn-primary">Iniciar Sesión</button>
+        <button onClick={Login} className="btn btn-primary">Iniciar Sesión</button>
       </div>
     </div>
   );

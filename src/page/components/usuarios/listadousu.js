@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Navbar from "../Navbar";
 export default class Listado extends React.Component {
   state = {
     usuarios: [],
@@ -15,6 +15,7 @@ export default class Listado extends React.Component {
     const { usuarios } = this.state;
     return (
       <div className="container">
+        <Navbar/>
         <br />
         <h2>usuarios({usuarios.length})</h2>
         <br />
