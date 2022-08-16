@@ -10,7 +10,7 @@ export default class Edicion extends React.Component{
         }
         componentDidMount(){
              //------------------Producto--------------------//
-             fetch('http://localhost/mcityreact/public/api/getdetp/'+this.props.location.state.id)
+             fetch('http://localhost/Mcity-2.0/public/api/getdetp/'+this.props.location.state.id)
              .then(response => response.json())
              .then(productoJson => this.setState({producto: productoJson}))
         }
@@ -33,7 +33,7 @@ export default class Edicion extends React.Component{
                 ,fotop:this.state.producto.fotop
                 ,cantidad:this.state.producto.cantidad
             };
-            fetch('http://localhost/mcityreact/public/api/putprod/'+this.state.producto.id,
+            fetch('http://localhost/Mcity-2.0/public/api/putprod/'+this.state.producto.id,
             {
             method:'PUT',
             headers:{

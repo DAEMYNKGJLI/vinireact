@@ -14,7 +14,7 @@ export default function Loginusu() {
   async function Login() {
     console.warn(correo,password)
     let item={correo,password}
-    let result= await fetch("http://localhost/mcityreact/public/api/login",{
+    let result= await fetch("http://localhost/Mcity-2.0/public/api/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json",

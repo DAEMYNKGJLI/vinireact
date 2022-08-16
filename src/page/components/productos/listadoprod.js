@@ -6,7 +6,7 @@ export default class Listado extends React.Component {
     productos: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact/public/api/getprod")
+    fetch("http://localhost/Mcity-2.0/public/api/getprod")
       .then((response) => response.json())
       .then((productosJson) => this.setState({ productos: productosJson }));
   }

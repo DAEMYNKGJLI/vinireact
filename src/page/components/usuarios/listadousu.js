@@ -6,7 +6,7 @@ export default class Listado extends React.Component {
     usuarios: [],
   };
   componentDidMount() {
-    fetch("http://localhost/mcityreact/public/api/getusu")
+    fetch("http://localhost/Mcity-2.0/public/api/getusu")
       .then((response) => response.json())
       .then((usuariosJson) => this.setState({ usuarios: usuariosJson }));
   }

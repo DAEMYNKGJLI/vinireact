@@ -8,11 +8,11 @@ export default class Delete extends React.Component{
     }
     componentDidMount(){
         //---------Consulta-------------------//
-        fetch('http://localhost/mcityreact/public/api/getdetp/'+this.props.location.state.id)
+        fetch('http://localhost/Mcity-2.0/public/api/getdetp/'+this.props.location.state.id)
         .then(response => response.json())
         .then(productoJson => this.setState({producto: productoJson}));
 //------------ELIMINACIÓN-----------------------//
-        fetch('http://localhost/mcityreact/public/api/delprod/'+this.props.location.state.id,{method:'delete'});
+        fetch('http://localhost/Mcity-2.0/public/api/delprod/'+this.props.location.state.id,{method:'delete'});
     }
 
     render(){

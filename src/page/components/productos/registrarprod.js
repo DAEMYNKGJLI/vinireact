@@ -28,7 +28,7 @@ export default class Registrar extends React.Component{
                 ,fotop:this.state.fotop
                 ,cantidad:this.state.cantidad
             };
-            fetch('http://localhost/mcityreact/public/api/postprod',
+            fetch('http://localhost/Mcity-2.0/public/api/postprod',
             {
             method:'POST',
             headers:{

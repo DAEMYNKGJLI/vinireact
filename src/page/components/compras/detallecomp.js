@@ -7,7 +7,7 @@ export default class Detalle extends React.Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost/mcityreact/public/api/getdetc/'+this.props.location.state.id)
+        fetch('http://localhost/Mcity-2.0/public/api/getdetc/'+this.props.location.state.id)
         .then(response => response.json())
         .then(compraJson => this.setState({compra: compraJson}))
     }

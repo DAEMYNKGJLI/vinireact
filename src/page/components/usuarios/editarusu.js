@@ -11,7 +11,7 @@ export default class Edicion extends React.Component{
         }
         componentDidMount(){
              //------------------Usuario---------------------//
-             fetch('http://localhost/mcityreact/public/api/getdetu/'+this.props.location.state.id)
+             fetch('http://localhost/Mcity-2.0/public/api/getdetu/'+this.props.location.state.id)
              .then(response => response.json())
              .then(usuarioJson => this.setState({usuario: usuarioJson}))
         }
@@ -35,7 +35,7 @@ export default class Edicion extends React.Component{
                 ,correo:this.state.usuario.correo
                 ,password:this.state.usuario.password
             };
-            fetch('http://localhost/mcityreact/public/api/putusu/'+this.state.usuario.id,
+            fetch('http://localhost/Mcity-2.0/public/api/putusu/'+this.state.usuario.id,
             {method:'PUT',
             headers:{
                 'Accept':'application/json',
